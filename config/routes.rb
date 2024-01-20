@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :subjects, only: [:new, :create, :show, :edit, :update, :destroy]
   end
 
+  resources :teachers do
+    resources :quizzes
+  end
 
 
 
