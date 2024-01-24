@@ -4,12 +4,12 @@
   --text: hsl(0, 0%, 99%);
   --textDim: hsl(0, 0%, 60%);
   --background: hsl(0, 0%, 7%);
-  --primary: hsl(155, 100%, 65%);
+  --primary: hsl(179, 100%, 65%);
   --primaryBg: hsla(155, 100%, 65%, 1%);
   --primaryHi: hsla(155, 100%, 75%, 25%);
-  --primaryFg: hsl(155, 100%, 85%);
+  --primaryFg: hsl(179, 100%, 65%);
   --secondary: hsl(156, 51%, 14%);
-  --secondaryFg: hsl(156, 51%, 75%);
+  --secondaryFg: hsl(179, 100%, 65%);
   --secondaryBg: hsla(156, 51%, 14%, 5%);
   --secondaryHi: hsla(156, 51%, 30%, 50%);
   --accent: hsl(155, 100%, 94%);
@@ -29,7 +29,6 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
 
 
 .menu:hover {
