@@ -1,0 +1,16 @@
+<%# app/views/quizzes/show.html.erb %>
+<h1>Quiz <%= @quiz.title %></h1>
+
+<p>
+  <strong>Profesor:</strong>
+  <%= @quiz.teacher.name %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @quiz.description %>
+</p>
+
+
+<%= link_to 'Editar', edit_quiz_path(@quiz) %> |
+<%= link_to 'Volver', quizzes_path %>
