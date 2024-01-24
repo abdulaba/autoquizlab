@@ -1,1 +1,42 @@
-<%# aquí va el new de institutions Como darlas de alta %>
+<%# app/views/institutions/new.html.erb %>
+<h1>Nueva Institución</h1>
+
+<%= form_with(model: @institution, local: true) do |form| %>
+  <% if @institution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@institution.errors.count, "error") %> No se pudo guardar la institución </h2>
+
+      <ul>
+        <% @institution.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, 'Nombre' %>
+    <%= form.text_field :name, id: :institution_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number, 'Número de Teléfono' %>
+    <%= form.telephone_field :phone_number, id: :institution_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address, 'Dirección' %>
+    <%= form.text_field :address, id: :institution_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, 'Correo Electrónico' %>
+    <%= form.email_field :email, id: :institution_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Guardar' %>
+  </div>
+<% end %>
+
+<%= link_to 'Volver', institutions_path %>
