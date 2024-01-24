@@ -1,0 +1,24 @@
+<%# app/views/take_quizzes/show.html.erb %>
+<h1>Resultados del quiz <%= @quiz.title %></h1>
+
+<p>
+  <strong>Estudiante:</strong>
+  <%= @take_quiz.student.name %>
+</p>
+
+<p>
+  <strong>Puntuación:</strong>
+  <%= @take_quiz.result %>
+</p>
+
+<% @quiz.questions.each_with_index do |question, index| %>
+  <div class="question">
+    <p><%= question.content %></p>
+    <p>Respuesta seleccionada:
+      <%= @take_quiz.responses.find { |r| r.question_id == question.id }&.content %>
+    </p>
+    <p>Respuesta correcta: <%= question.answers.find(&:correct?).content %></p>
+  </div>
+<% end %>
+
+<%= link_to 'Volver a los Cuestionarios', quizzes_path %>
