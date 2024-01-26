@@ -1,0 +1,27 @@
+<!-- app/views/subjects/edit.html.erb -->
+<h1>Editar Materia</h1>
+
+<%= form_with(model: [@institution, @subject], local: true) do |form| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subject.errors.count, "error") %> La materia no ha podido ser guardada </h2>
+
+      <ul>
+        <% @subject.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, 'Nombre de la materia' %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Actualizar Materia' %>
+  </div>
+<% end %>
+
+<%= link_to 'Cancelar y volver a la lista', institution_subjects_path(@institution) %>
