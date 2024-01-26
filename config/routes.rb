@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   devise_for :students
   devise_for :teachers
   devise_for :institutions
-  root to: "pages#home"
+
 
   resources :institutions, only: [:new, :create, :show, :edit, :update, :destroy]
+  root to: "pages#home"
+
 
   resources :institutions do
-    resources :subjects, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :subjects, only: [:new, :create, :edit, :update, :show, :destroy]
   end
+
 
   # nesteado para quizzes de un teacher
   resources :teachers do
@@ -21,8 +24,15 @@ Rails.application.routes.draw do
     resources :take_quizzes, only: [:new, :create]
     end
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :teachers, only: [:show] do
+    resources :quizzes
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :quizzes do
+    resources :take_quizzes, only: [:new, :create]
+  end
+
+  resources :students
+  resources :questions, only: [:index, :show]
+
 end

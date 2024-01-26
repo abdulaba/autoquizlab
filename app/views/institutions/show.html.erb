@@ -1,0 +1,21 @@
+<%# app/views/institutions/show.html.erb %>
+<h1>Institución: <%= @institution.name %></h1>
+
+<p>
+  <strong>Número de Teléfono:</strong>
+  <%= @institution.phone_number %>
+</p>
+
+<p>
+  <strong>Dirección:</strong>
+  <%= @institution.address %>
+</p>
+
+<p>
+  <strong>Correo Electrónico:</strong>
+  <%= @institution.email %>
+</p>
+
+
+<%= link_to 'Editar', edit_institution_path(@institution) %> |
+<%= link_to 'Volver', institutions_path %>

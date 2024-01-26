@@ -1,0 +1,71 @@
+
+@import url('https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400');
+
+:root {
+  --text: hsl(0, 0%, 99%);
+  --textDim: hsl(0, 24%, 94%);
+  --background: hsl(0, 0%, 7%);
+  --primary: hsl(179, 100%, 65%);
+  --primaryBg: hsla(155, 100%, 65%, 8%);
+  --primaryHi: hsla(155, 100%, 75%, 25%);
+  --primaryFg: hsl(179, 100%, 65%);
+  --secondary: hsl(156, 51%, 14%);
+  --secondaryFg: hsl(179, 100%, 65%);
+  --secondaryBg: hsla(156, 51%, 14%, 5%);
+  --secondaryHi: hsla(156, 51%, 30%, 50%);
+  --accent: hsl(155, 100%, 94%);
+  --accentBg: hsla(156, 39%, 50%, 0.268);
+  --accentHi: hsla(155, 100%, 100%, 25%);
+}
+
+.form-containerslo {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  align-items: baseline;
+  justify-content: space-between; /* Esto distribuirá los elementos a lo largo del contenedor */
+}
+
+.form-sectionslo {
+  width: 48%; /* Ajusta según el espacio deseado entre los formularios */
+  box-sizing: border-box;
+}
+
+#signup-section,
+#login-section {
+  /* ... Estilos específicos para cada formulario ... */
+}
+
+/* ... Otros estilos ... */
+
+/* application.scss */
+
+/* ... Otros estilos ... */
+
+body {
+  display: flex;
+  align-items: center; /* Centra verticalmente en la página */
+  justify-content: center; /* Centra horizontalmente en la página */
+  height: 100vh; /* Establece la altura del cuerpo como 100% de la ventana */
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row; /* Apila los formularios verticalmente */
+  align-items: center; /* Centra los formularios en el eje horizontal */
+}
+
+.form-section {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 400px; /* Ajusta según el ancho máximo deseado */
+  margin-bottom: 20px; /* Ajusta según la separación deseada entre formularios */
+  box-sizing: border-box;
+}
+
+#signup-section,
+#login-section {
+  /* ... Estilos específicos para cada formulario ... */
+}
+
+/* ... Otros estilos ... */
