@@ -1,0 +1,10 @@
+<!-- app/views/subjects/show.html.erb -->
+<h1>Materia: <%= @subject.name %></h1>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @subject.name %>
+</p>
+
+<%= link_to 'Editar', edit_institution_subject_path(@institution, @subject) %> |
+<%= link_to 'Volver a la lista', institution_subjects_path(@institution) %>

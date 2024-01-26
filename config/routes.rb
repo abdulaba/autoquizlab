@@ -1,22 +1,24 @@
 Rails.application.routes.draw do
-  resources :teachers
   devise_for :students
   devise_for :teachers
   devise_for :institutions
+
   root to: "pages#home"
 
-  # Esto era previo a crear subjects
-  # resources :institutions, only: [:new, :create, :show, :edit, :update, :destroy]
-
   resources :institutions do
-    resources :subjects, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :subjects, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
-  resources :teachers do
+  resources :teachers, only: [:show] do
     resources :quizzes
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :quizzes do
+    resources :take_quizzes, only: [:new, :create]
+  end
+
+  resources :students
+
+  resources :questions, only: [:index, :show]
+
 end
