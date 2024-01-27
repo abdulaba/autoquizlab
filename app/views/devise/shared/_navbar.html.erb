@@ -25,19 +25,28 @@
 
           <% if student_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Cerrar Sesión", destroy_student_session_path, method: :delete, class: "nav-link" %>
+              <%= link_to "Cerrar Sesion", destroy_student_session_path, class: "nav-link", data: {turbo_method: :delete} %>
             </li>
             <li class="nav-item">
-              <%= link_to "Editar Perfil", edit_student_registration_path, class: "nav-link" %>
+              <%#= link_to "Editar Perfil", edit_student_registration_path, class: "nav-link" %>
             </li>
-          <% else teacher_signed_in? %>
+          <% elsif teacher_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Cerrar Sesión", destroy_teacher_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to "Cerrar Sesion", destroy_teacher_session_path, class: "nav-link", data: {turbo_method: :delete} %>
+                <p class="text-primary nav-link"><%= current_user %></p>
             </li>
             <li class="nav-item">
-              <%= link_to "Editar Perfil", edit_teacher_registration_path, class: "nav-link" %>
+              <%#= link_to "Editar Perfil", edit_teacher_registration_path, class: "nav-link" %>
             </li>
+          <% else institution_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Cerrar Sesion", destroy_institution_session_path, class: "nav-link", data: {turbo_method: :delete} %>
+                <p class="text-primary nav-link"><%= current_institution %></p>
 
+            </li>
+            <li class="nav-item">
+              <%#= link_to "Editar Perfil", edit_teacher_registration_path, class: "nav-link" %>
+            </li>
           <% end %>
         </ul>
       </div>
