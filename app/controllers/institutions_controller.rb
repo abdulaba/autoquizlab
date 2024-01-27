@@ -1,12 +1,11 @@
 class InstitutionsController < ApplicationController
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
 
-  # GET /institutions/new
   def new
     @institution = Institution.new
   end
 
-  # POST /institutions
+
   def create
     @institution = Institution.new(institution_params)
     if @institution.save
@@ -24,7 +23,7 @@ class InstitutionsController < ApplicationController
   def edit
   end
 
-  # PATCH/PUT /institutions/:id
+
   def update
     if @institution.update(institution_params)
       redirect_to @institution, notice: 'La institución ha sido actualizada de manera exitosa.'
@@ -33,7 +32,7 @@ class InstitutionsController < ApplicationController
     end
   end
 
-  # DELETE /institutions/:id
+
   def destroy
     @institution.destroy
     redirect_to institutions_url, notice: 'la institución ha sido eliminada de manera exitosa.'

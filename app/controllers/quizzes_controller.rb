@@ -1,6 +1,10 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @quizzes = Quiz.all
+  end
+
   def new
     @quiz = Quiz.new
   end
