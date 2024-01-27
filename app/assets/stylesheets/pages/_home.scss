@@ -68,6 +68,25 @@ body {
   position: absolute;
 }
 
+.text {
+  font-size: medium;
+  font-weight: 300;
+  letter-spacing: -0.8rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-self: center;
+  height: 100%;
+  z-index: 1000;
+}
+
+.text > p {
+  margin: 0;
+  line-height: 10rem;
+  width: auto;
+}
+
 .title {
   font-size: 10rem;
   font-weight: 700;
@@ -125,7 +144,7 @@ button {
   height: 50px;
   width: 160px;
   clip-path: path("M 0 25 C 0 -5, -5 0, 80 0 S 160 -5, 160 25, 165 50 80 50, 0 55, 0 25");
-  border: none;
+  border: 1px solid #36c0a4;
   border-radius: 13px;
   background-color: var(--primaryBg);
   box-shadow: 0px -3px 15px 0px var(--primaryHi) inset;
