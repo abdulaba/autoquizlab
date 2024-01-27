@@ -1,0 +1,16 @@
+<h1>Todos tus exámenes</h1>
+
+<%= link_to 'Nuevo examen', new_quiz_path %>
+
+<% if @quizzes.empty? %>
+  <p>No hay examenes disponibles.</p>
+<% else %>
+  <ul>
+    <% @quizzes.each do |quiz| %>
+      <li>
+        <%= link_to quiz.title, quiz %>
+        - <%= link_to 'Eliminar', quiz, method: :delete, data: { confirm: 'Estás seguro de eliminar el examen?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
