@@ -1,35 +1,38 @@
 Rails.application.routes.draw do
-  devise_for :independents
-  get 'students/index'
-  resources :teachers
-
   devise_for :students
   devise_for :teachers
   devise_for :institutions
+
+
+  resources :institutions, only: [:new, :create, :show, :edit, :update, :destroy]
   root to: "pages#home"
 
-  resources :students
-
-
-  # Esto era previo a crear subjects
-  # resources :institutions, only: [:new, :create, :show, :edit, :update, :destroy]
 
   resources :institutions do
-    resources :subjects, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :subjects, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
+
+  # nesteado para quizzes de un teacher
   resources :teachers do
     resources :quizzes
   end
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # nesteado para rutas de take_quizzes de un quiz
+  # el alumno no puede borrar, editar o un quiz
+  resources :quizzes do
+    resources :take_quizzes, only: [:new, :create]
+    end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :teachers, only: [:show] do
+    resources :quizzes
+  end
+
+  resources :quizzes do
+    resources :take_quizzes, only: [:new, :create]
+  end
+
+  resources :students
+  resources :questions, only: [:index, :show]
+
 end
-
-
-# devise_for :users, controllers: {
-#   sessions: 'users/sessions',
-#   registrations: 'users/registrations'
-# }

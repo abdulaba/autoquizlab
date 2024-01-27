@@ -1,34 +1,23 @@
 <%# app/views/take_quizzes/new.html.erb %>
-<h1>Contesta el quiz <%= @quiz.title %></h1>
+<h1> Presenta el quiz <%= @quiz.title %></h1>
 
 <%= form_with(model: [@quiz, @take_quiz], local: true) do |form| %>
-  <% if @take_quiz.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@take_quiz.errors.count, "error") %> Un error impidió que se guardara el quiz </h2>
-
-      <ul>
-        <% @take_quiz.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <% @quiz.questions.each_with_index do |question, index| %>
     <div class="question">
       <p><%= question.content %></p>
+
       <% question.answers.each do |answer| %>
         <div class="field">
-          <%= form.radio_button :"answers_#{index}", answer.id %>
-          <%= form.label :"answers_#{index}", answer.content %>
+          <%= form.radio_button "responses[#{question.id}]", answer.id %>
+          <%= form.label "responses[#{question.id}]", answer.content %>
         </div>
       <% end %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= form.submit 'Enviar Quiz' %>
+    <%= form.submit 'Enviar Respuestas' %>
   </div>
-<% end %>
 
-<%= link_to 'Volver', quiz_path(@quiz) %>
+<% end %>
