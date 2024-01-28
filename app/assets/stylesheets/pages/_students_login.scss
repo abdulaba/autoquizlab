@@ -21,7 +21,7 @@
 .card{
   border: none;
   border-radius: 30px;
-background-color: #14edaa;}
+background-color: #14ede3f5;}
 
 .wow-bg {
   background-color: #264a47;
@@ -34,16 +34,22 @@ background-color: #14edaa;}
   margin-top: 4px;
 }
 
+.sin-color {
+  border-color: transparent;
+  background-color: transparent;
+}
+
 .custom-hint .hint::after {
   color: #31888a6b; /* Cambia este color según tus preferencias */
 }
 
 .form-containerslo {
+  align-self: center;
   display: flex;
   flex-direction: row;
   align-self: stretch;
   align-items: baseline;
-  justify-content: space-between; /* Esto distribuirá los elementos a lo largo del contenedor */
+  justify-content: center; /* Esto distribuirá los elementos a lo largo del contenedor */
 }
 
 .form-sectionslo {

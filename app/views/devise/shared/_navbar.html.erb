@@ -12,13 +12,11 @@
       <div class="collapse navbar-collapse" id="nav-principal">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="" class="nav-link">Quiénes Somos</a>
+            <a href="/quienes_somos" class="nav-link">Quiénes Somos</a>
           </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">Instituciones</a>
-          </li>
+
             <li class="nav-item">
-              <a href="" class="nav-link">Preguntas Frecuentes</a>
+              <a href="/preguntas_frecuentes" class="nav-link">Preguntas Frecuentes</a>
             </li>
 
           <li class="nav-item divisor"></li>
@@ -26,6 +24,8 @@
           <% if student_signed_in? %>
             <li class="nav-item">
               <%= link_to "Cerrar Sesion", destroy_student_session_path, class: "nav-link", data: {turbo_method: :delete} %>
+               <p class="text-primary nav-link"><%= current_student.name %></p>
+
             </li>
             <li class="nav-item">
               <%#= link_to "Editar Perfil", edit_student_registration_path, class: "nav-link" %>
@@ -33,7 +33,7 @@
           <% elsif teacher_signed_in? %>
             <li class="nav-item">
                 <%= link_to "Cerrar Sesion", destroy_teacher_session_path, class: "nav-link", data: {turbo_method: :delete} %>
-                <p class="text-primary nav-link"><%= current_user %></p>
+                <li class="nav-item"><%= current_teacher.name %></li>
             </li>
             <li class="nav-item">
               <%#= link_to "Editar Perfil", edit_teacher_registration_path, class: "nav-link" %>
