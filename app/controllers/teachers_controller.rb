@@ -1,7 +1,12 @@
 class TeachersController < ApplicationController
 
   def index
-    @teachers = Teacher.all   
+    
+  end
+
+  def show
+    @teacher = current_teacher
+    @subject = current_teacher.subject
   end
 
   def new
@@ -18,6 +23,20 @@ class TeachersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @teacher = current_teacher
+  end
+
+  def update
+    @teacher = current_teacher
+    if @teacher.update(teacher_params)
+      redirect_to @teacher, notice: 'Estudiante ha sido actualizado de manera exitosa.'
+    else
+      render :edit
+    end
+  end
+
 
 
   private
