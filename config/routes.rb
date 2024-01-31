@@ -35,4 +35,7 @@ Rails.application.routes.draw do
   resources :students
   resources :questions, only: [:index, :show]
 
+  get 'quienes_somos', to: 'pages#quienes_somos'
+  get 'preguntas_frecuentes', to: 'pages#preguntas_frecuentes'
+
 end

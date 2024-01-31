@@ -17,6 +17,20 @@
   --accentHi: hsla(155, 100%, 100%, 25%);
 }
 
+h3 {
+color: white;
+text-align: justify;
+}
+
+#miDivQS {
+  width: 300px;
+  height: 200px;
+  background-image: url('/images/ia_fondo_quienes.png'); /* Ruta de tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el div */
+  background-position: center; /* Ajusta la posición de la imagen en el div */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
 body {
   font-family: 'Manrope';
   font-weight: 400;

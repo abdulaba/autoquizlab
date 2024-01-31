@@ -1,0 +1,93 @@
+
+<h1>Mi Perfil de Estudiante</h1>
+<div class="card">
+            <div class="card-body wow-bg" id="formBg">
+
+
+
+
+<div class="dashboard-container">
+
+  <!-- Maestros Section
+  <div class="teachers-section">
+    <h2>Mis Maestros</h2>
+    <ul>
+      <li><%= link_to "Profesor 1", teachers_path(teacher_id: 1) %></li>
+      <li><%= link_to "Profesor 2", teachers_path(teacher_id: 2) %></li>
+    </ul>
+  </div>-->
+
+  <!-- Examenes Section
+  <div class="exams-section">
+    <h2>Exámenes Pendientes</h2>
+    <ul>
+      <li><%= link_to "Examen 1", new_quiz_take_quiz_path(exam_id: 1) %></li>
+      <li><%= link_to "Examen 2", new_quiz_take_quiz_path(exam_id: 2) %></li>
+    </ul>-->
+
+    <!-- Calificaciones Section
+    <h2>Calificaciones</h2>
+    <ul>
+      <li>Examen 1: A</li>
+      <li>Examen 2: B+</li>
+    </ul>
+  </div> -->
+
+  <!-- Informacion del Alumno Section
+  <div class="student-info-section">
+    <h2>Mi Información</h2>
+    <div class="student-photo">
+      <img src="student_photo.jpg" alt="Student Photo">
+    </div>
+    <p>Nombre: <%= @current_student.name %></p>
+    <p>Institución: <%= @current_student.institution %></p>
+  </div>
+</div>
+ -->
+
+
+
+<h1>Información del Estudiante</h1>
+
+<div class="container">
+  <div class="teachers-container">
+    <h2>Mis Profesores</h2>
+    <ul>
+      <% @student.teachers.each do |teacher| %>
+        <li><%= teacher.name %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="quizzes-container">
+    <h2>Mis Exámenes</h2>
+    <ul>
+      <% @student.quizzes.each do |quiz| %>
+        <li><%= link_to quiz.title, quiz_path(quiz) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="grades-container">
+    <h2>Mis Calificaciones</h2>
+    <ul>
+      <% @student.take_quizzes.each do |take_quiz| %>
+        <li><%= "#{take_quiz.quiz.title}: #{take_quiz.result}" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="info-container">
+    <h2>Mi Información</h2>
+    <p>Nombre: <%= @student.name %></p>
+    <p>Institución: <%= @student.institution.name %></p>
+    <!-- Agrega más información del estudiante según sea necesario -->
+  </div>
+</div>
+
+
+
+
+ </div>
+ </div>
+
