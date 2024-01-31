@@ -9,7 +9,6 @@ class InstitutionsController < ApplicationController
   def create
     @institution = Institution.new(institution_params)
     if @institution.save
-
       redirect_to @institution, notice: 'La institución se ha creado de manera exitosa.'
     else
       render :new
@@ -17,7 +16,7 @@ class InstitutionsController < ApplicationController
   end
 
   def show
-    @subjects = @institution.subjects
+    
   end
 
   def edit
