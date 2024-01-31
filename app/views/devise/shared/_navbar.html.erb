@@ -42,7 +42,7 @@
             <li class="nav-item">
               <%#= link_to "Editar Perfil", edit_teacher_registration_path, class: "nav-link" %>
             </li>
-          <% else institution_signed_in? %>
+          <% elsif institution_signed_in? %>
             <li class="nav-item">
               <%= link_to "Cerrar Sesion", destroy_institution_session_path, class: "nav-link", data: {turbo_method: :delete} %>
                 <p class="text-primary nav-link"><%= current_institution %></p>
@@ -51,6 +51,8 @@
             <li class="nav-item">
               <%#= link_to "Editar Perfil", edit_teacher_registration_path, class: "nav-link" %>
             </li>
+          <% else %>
+          
           <% end %>
         </ul>
       </div>
