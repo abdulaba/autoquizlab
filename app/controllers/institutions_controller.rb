@@ -17,7 +17,6 @@ class InstitutionsController < ApplicationController
   end
 
   def show
-    @subjects = @institution.subjects
   end
 
   def edit
