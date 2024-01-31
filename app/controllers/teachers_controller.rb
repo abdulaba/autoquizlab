@@ -6,7 +6,6 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = current_teacher
-    @subject = current_teacher.subject
   end
 
   def new
