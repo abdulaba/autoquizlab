@@ -1,5 +1,13 @@
 class SubjectsController < ApplicationController
-  before_action :set_institution, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_institution, only: [:new, :create, :edit, :update, :destroy, :index]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @subjects = @institution.subjects
+  end
+
+  def show
+  end
 
   def new
     @subject = @institution.subjects.new

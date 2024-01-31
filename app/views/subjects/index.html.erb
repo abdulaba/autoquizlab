@@ -1,0 +1,12 @@
+<!-- app/views/subjects/index.html.erb -->
+<h1>Materias de <%= @institution.name %></h1>
+
+<%= link_to 'Nueva Materia', new_institution_subject_path(@institution) %>
+
+<ul>
+  <% @subjects.each do |subject| %>
+    <li>
+      <%= link_to subject.name, institution_subject_path(@institution, subject) %>
+    </li>
+  <% end %>
+</ul>
