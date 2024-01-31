@@ -1,12 +1,35 @@
+<div class="grid">
+  <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
+  </svg>
+  <div class="blur"></div>
+</div>
+
+<div class="form-containerslo">
+ <div class="form-sectionslo" id="login-section">
+    <h2>Nuevo Estudiante</h2>
+
+
 <%= form_with model: @student do |f| %>
+<div class="form-inputs">
     <%= f.label :Email %>
     <%= f.text_field :email %>
-    
+
     <%= f.label :Password %>
     <%= f.text_field :password %>
-    
+
     <%= f.label :Nombre %>
     <%= f.text_field :name %>
 
-    <%= f.submit "Registrar estudiante" %>
+ <div class="form-actions">
+    <button>  <%= f.submit "Registrar estudiante" %> </button>
+    </div>
 <% end %>
+ <hr class="sin-color">
+    <hr class="sin-color">
+    <hr class="sin-color">
+    <hr class="sin-color">
+     </div>
+</div>
+   </div>
+
+ 
