@@ -1,6 +1,45 @@
-<div><%= @teacher.name %></div>
-<%= @teacher.subject.name %>
+<h1><%= @teacher.institution.name %></h1>
+<h3><div><%= @teacher.name %></div></h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h4>Materias</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+        </thead>
+        <tbody>
+          <% @subjects.each do |subject|  %>
+            <tr>
+              <td scope="row"><%= subject.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <h4>Estudiante</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+        </thead>
+        <tbody>
+          <% @students.each do |student|  %>
+            <tr>
+              <td scope="row"><%= student.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= console %>
 
 
 
-<%= link_to "Dashborad" %>
+
+<%#= link_to "Dashborad" %>

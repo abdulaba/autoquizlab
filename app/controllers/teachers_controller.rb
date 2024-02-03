@@ -5,19 +5,22 @@ class TeachersController < ApplicationController
   end
 
   def show
-    @teacher = current_teacher
-    
+    @teacher = Teacher.find(params[:id])
+    @subjects = Subject.where(teacher_id: @teacher.id)
+    @students = Student.where(institution_id: params[:id])
+
   end
 
   def new
+    @institution = Institution.find(params[:institution_id])
     @teacher = Teacher.new
   end
 
 
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.institution_id = params[:institution_id]
     if @teacher.save
-
       redirect_to @teacher, notice: 'Profesor se ha creado de manera exitosa.'
     else
       render :new
