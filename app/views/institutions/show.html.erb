@@ -16,8 +16,76 @@
   <%= @institution.email %>
 </p>
 
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h4>Materias</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col"><%= link_to '+', new_institution_subject_path(@institution), class: "btn btn-success" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @subjects.each do |subject|  %>
+            <tr>
+              <td scope="row"><%= subject.name %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h4>Profesores</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col"><%= link_to '+', new_institution_teacher_path(@institution), class: "btn btn-success" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @teachers.each do |teacher|  %>
+            <tr>
+              <th scope="row"><%= teacher.name %></th>
+              <td scope="row"><%= teacher.email %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h4>Alumnos</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col"><%= link_to '+', new_institution_student_path(@institution), class: "btn btn-success" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @students.each do |student|  %>
+            <tr>
+              <th scope="row"><%= student.name %></th>
+              <td scope="row"><%= student.email %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 
 
-<%= link_to 'Editar', edit_institution_path(@institution) %> |
+
+<%= link_to 'Editar', edit_institution_path(@institution) %>
 <%= link_to 'Volver', institutions_path %>
+<%#= link_to 'Asignar Materia' new_student_student_subject_path(@studentsubjects) %>
+

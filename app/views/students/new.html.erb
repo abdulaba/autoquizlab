@@ -9,7 +9,7 @@
     <h2>Nuevo Estudiante</h2>
 
 
-<%= form_with model: @student do |f| %>
+<%= form_with model: [@institution, @student] do |f| %>
 <div class="form-inputs">
     <%= f.label :Email %>
     <%= f.text_field :email %>

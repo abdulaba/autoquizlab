@@ -1,4 +1,4 @@
-class StudentsSubjectsController < ApplicationController
+class StudentSubjectsController < ApplicationController
       def index
         @studentsubject = StudentSubject.all      
       end
@@ -8,16 +8,20 @@ class StudentsSubjectsController < ApplicationController
       end
     
       def new
+        @student = Student.find(params[:student_id])
+        @subjects = Subject.where(institution_id: @student.institution.id)
         @studentsubject = StudentSubject.new
       end 
     
       def create
         @studentsubject = StudentSubject.new(student_subject_params)
+        @studentsubject.student_id = (params[:student_id])
+        @student = Student.find(params[:student_id])
         if @studentsubject.save
     
-          redirect_to @studentsubject
+          redirect_to @student.institution
         else
-          render :new
+          render :new, status: :unprocessable_entity
         end
       end
     
@@ -43,6 +47,6 @@ class StudentsSubjectsController < ApplicationController
       private
     
       def student_subject_params
-        params.require(:studentsubject).permit(:student_id, :subject_id)
+        params.require(:student_subject).permit(:subject_id)
       end
 end
