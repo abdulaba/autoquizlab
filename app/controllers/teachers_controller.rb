@@ -1,50 +1,56 @@
 class TeachersController < ApplicationController
+  before_action :set_institution, only: [:new, :create]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
   def index
-    
+    @teachers = Teacher.all # or scope to institution if necessary
   end
 
   def show
-    @teacher = Teacher.find(params[:id])
-    @subjects = Subject.where(teacher_id: @teacher.id)
-    @students = Student.where(institution_id: params[:id])
-
+    @subjects = @teacher.subject
+    @students = Student.where(institution_id: @teacher.institution_id)
   end
 
   def new
-    @institution = Institution.find(params[:institution_id])
-    @teacher = Teacher.new
+    @teacher = @institution.teachers.new
   end
 
-
   def create
-    @teacher = Teacher.new(teacher_params)
-    @teacher.institution_id = params[:institution_id]
+    @teacher = @institution.teachers.new(teacher_params)
     if @teacher.save
-      redirect_to @teacher, notice: 'Profesor se ha creado de manera exitosa.'
+      redirect_to [@institution, @teacher], notice: 'El profesor se ha creado de manera exitosa.'
     else
       render :new
     end
   end
 
   def edit
-    @teacher = current_teacher
   end
 
   def update
-    @teacher = current_teacher
     if @teacher.update(teacher_params)
-      redirect_to @teacher, notice: 'Estudiante ha sido actualizado de manera exitosa.'
+      redirect_to [@institution, @teacher], notice: 'El profesor ha sido actualizado de manera exitosa.'
     else
       render :edit
     end
   end
 
-
+  def destroy
+    @teacher.destroy
+    redirect_to institution_teachers_url(@institution), notice: 'El profesor ha sido eliminado de manera exitosa.'
+  end
 
   private
 
+  def set_institution
+    @institution = Institution.find(params[:institution_id])
+  end
+
+  def set_teacher
+    @teacher = Teacher.find(params[:id])
+  end
+
   def teacher_params
-    params.require(:teacher).permit(:name, :email, :password)
+    params.require(:teacher).permit(:name, :email, :password, :password_confirmation, :institution_id)
   end
 end
