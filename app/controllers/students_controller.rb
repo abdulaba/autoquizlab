@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authenticate_student!, except: :home
+  before_action :set_institution, only: [:show, :edit, :update, :destroy]
   
   def index
     @students = Student.all  
@@ -12,13 +12,14 @@ class StudentsController < ApplicationController
   end
 
   def new
+    @institution = Institution.find(params[:institution_id])
     @student = Student.new
   end 
 
   def create
     @student = Student.new(student_params)
+    @student.institution_id = params[:institution_id]
     if @student.save
-
       redirect_to @student, notice: 'El estudiante se ha creado de manera exitosa.'
     else
       render :new

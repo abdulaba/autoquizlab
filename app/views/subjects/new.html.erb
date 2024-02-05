@@ -15,8 +15,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name, 'Subject Name' %>
-    <%= form.text_field :name, id: :subject_name %>
+    <%= form.label :name, 'Materia' %>
+    <%= form.text_field :name %>
+  </div>
+
+    <div class="field">
+    <%= form.label :teacher, 'Profesor' %>
+    <%= form.select :teacher_id, options_for_select(@institution.teachers.map {|teacher| [teacher.name, teacher.id]}) %>
   </div>
 
   <div class="actions">

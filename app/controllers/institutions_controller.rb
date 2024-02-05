@@ -16,6 +16,9 @@ class InstitutionsController < ApplicationController
   end
 
   def show
+    @teachers = Teacher.where(institution_id: params[:id])
+    @students = Student.where(institution_id: params[:id])
+    @subjects = Subject.where(institution_id: params[:id])
   end
 
   def edit

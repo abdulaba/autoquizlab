@@ -10,11 +10,12 @@ class SubjectsController < ApplicationController
   end
 
   def new
-    @subject = @institution.subjects.new
+    @subject = Subject.new
   end
 
   def create
-    @subject = @institution.subjects.new(subject_params)
+    @subject = Subject.new(subject_params)
+    @subject.institution_id = @institution.id
     if @subject.save
       redirect_to @institution, notice: 'La materia ha sido creada de manera exitosa.'
     else
@@ -48,6 +49,6 @@ class SubjectsController < ApplicationController
   end
 
   def subject_params
-    params.require(:subject).permit(:name, :institution_id)
+    params.require(:subject).permit(:name, :teacher_id)
   end
 end

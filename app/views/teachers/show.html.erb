@@ -1,6 +1,58 @@
-<div><%= @teacher.name %></div>
-<%= @teacher.subject.name %>
+<%# app/views/teachers/show.html.erb %>
+<h1>Profesor: <%= @teacher.name %></h1>
+
+<p>
+  <strong>Correo Electrónico:</strong>
+  <%= @teacher.email %>
+</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h4>Materias que enseña</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Examenes</th>
+            <th scope="col"><%= link_to '+', new_teacher_quiz_path(@teacher), class: "btn btn-success" %></th>
+          </tr>
+        </thead>
+        <tbody>
+        <%= @teacher.subject %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <h4>Alumnos</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @students.each do |student|  %>
+            <tr>
+              <td scope="row"><%= student.name %></td>
+              <td scope="row"><%= student.email %></td>
+              <td scope="row">
+                <%= link_to 'Ver', student_path(student) %> |
+                <%= link_to 'Editar', edit_student_path(student) %> |
+                <%= link_to 'Eliminar', student_path(student), method: :delete, data: { confirm: '¿Estás seguro?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_teacher_path(@teacher) %>
+<%= link_to 'Volver', teachers_path %>
 
 
 
-<%= link_to "Dashborad" %>
+<%#= link_to "Dashborad" %>
