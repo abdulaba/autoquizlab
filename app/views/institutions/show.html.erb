@@ -1,20 +1,35 @@
 <%# app/views/institutions/show.html.erb %>
 <h1>Institución: <%= @institution.name %></h1>
+<div class="grid">
+  <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
+    <!-- Tu contenido SVG aquí -->
+  </svg>
+  <div class="blur"></div>
+</div>
 
+<div class="card">
+            <div class="card-body wow-bg" id="formBg">
 <p>
   <strong>Número de Teléfono:</strong>
   <%= @institution.phone_number %>
 </p>
+<hr class="sin-color">
 
 <p>
   <strong>Dirección:</strong>
   <%= @institution.address %>
 </p>
+<hr class="sin-color">
 
 <p>
   <strong>Correo Electrónico:</strong>
   <%= @institution.email %>
 </p>
+</div>
+</div>
+<hr class="sin-color">
+
+<div class="card-body wow-bg" id="formBg" >
 
 <div class="container">
   <div class="row">
@@ -24,7 +39,7 @@
         <thead>
           <tr>
             <th scope="col">Nombre</th>
-            <th scope="col"><%= link_to '+', new_institution_subject_path(@institution), class: "btn btn-success" %></th>
+            <th scope="col"><%= link_to '+', new_institution_subject_path(@institution), class: "button first" %></th>
           </tr>
         </thead>
         <tbody>
@@ -44,7 +59,7 @@
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
-            <th scope="col"><%= link_to '+', new_institution_teacher_path(@institution), class: "btn btn-success" %></th>
+            <th scope="col"><%= link_to '+', new_institution_teacher_path(@institution), class: "button sec" %></th>
           </tr>
         </thead>
         <tbody>
@@ -65,7 +80,7 @@
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Correo</th>
-            <th scope="col"><%= link_to '+', new_institution_student_path(@institution), class: "btn btn-success" %></th>
+            <th scope="col"><%= link_to '+', new_institution_student_path(@institution), class: "button third" %></th>
           </tr>
         </thead>
         <tbody>
@@ -81,11 +96,10 @@
     </div>
   </div>
 </div>
+</div>
 
 
 
-
-<%= link_to 'Editar', edit_institution_path(@institution) %>
-<%= link_to 'Volver', institutions_path %>
-<%#= link_to 'Asignar Materia' new_student_student_subject_path(@studentsubjects) %>
-
+<%= link_to 'Editar', edit_institution_path(@institution), class: 'button first' %>
+<%= link_to 'Volver', institutions_path, class: 'button first' %>
+<%#= link_to 'Asignar Materia' new_student_student_subject_path(@studentsubjects), class: 'button first' %>

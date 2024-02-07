@@ -21,10 +21,11 @@
 .card{
   border: none;
   border-radius: 30px;
-background-color: #14ede3f5;}
+background-color: #185754f5;}
 
 .wow-bg {
-  background-color: #264a47;
+  background: rgb(18,18,18);
+background: linear-gradient(0deg, rgba(18,18,18,1) 13%, rgba(18,18,18,1) 29%, rgba(18,18,18,1) 38%, rgba(24,42,41,1) 51%, rgba(27,54,53,1) 58%, rgba(31,69,68,1) 64%, rgba(34,82,81,1) 70%, rgba(39,101,100,1) 76%, rgba(46,132,130,1) 87%, rgba(57,178,176,1) 99%, rgba(76,255,252,1) 99%);
   border: 1px solid #36c0a4;
   box-shadow: 3px 9px 16px rgba(16, 219, 208, 0.4),
     -3px -3px 10px rgba(255, 255, 255, 0.06),

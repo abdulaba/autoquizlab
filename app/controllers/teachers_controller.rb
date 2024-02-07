@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  before_action :authenticate_teacher!
   before_action :set_institution, only: [:new, :create]
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 

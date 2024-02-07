@@ -1,8 +1,9 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_student!
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
-  
+
   def index
-    @students = Student.all  
+    @students = Student.all
 
   end
 
@@ -14,7 +15,7 @@ class StudentsController < ApplicationController
   def new
     @institution = Institution.find(params[:institution_id])
     @student = Student.new
-  end 
+  end
 
   def create
     @student = Student.new(student_params)
