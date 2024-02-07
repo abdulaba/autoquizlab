@@ -11,6 +11,7 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
+    @quiz.teacher = current_teacher
     if @quiz.save
       redirect_to @quiz, notice: 'El examen ha sido creado de manera exitosa.'
     else
@@ -19,6 +20,9 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @quiz = Quiz.find(params[:id])
+    @generated_content = @quiz.content
+    
   end
 
   def edit
@@ -43,6 +47,6 @@ class QuizzesController < ApplicationController
     end
 
     def quiz_params
-      params.require(:quiz).permit(:title, :description, :teacher_id)
+      params.require(:quiz).permit(:title, :description, :subject_name, :topic, :number_of_questions, :exam_level)
     end
 end
