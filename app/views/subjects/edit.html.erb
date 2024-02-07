@@ -1,5 +1,14 @@
 <!-- app/views/subjects/edit.html.erb -->
 <h1>Editar Materia</h1>
+<div class="grid">
+  <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
+    <!-- Tu contenido SVG aquí -->
+  </svg>
+  <div class="blur"></div>
+</div>
+
+<div class="form-containerslo">
+  <div class="form-sectionslo" id="signup-section">
 
 <%= form_with(model: [@institution, @subject], local: true) do |form| %>
   <% if @subject.errors.any? %>
@@ -22,6 +31,9 @@
   <div class="actions">
     <%= form.submit 'Actualizar Materia' %>
   </div>
+    </div>
+      </div>
+      
 <% end %>
 
-<%= link_to 'Cancelar y volver a la lista', institution_subjects_path(@institution) %>
+<%= link_to 'Cancelar y volver a la lista', institution_subjects_path(@institution), class: 'button first' %>

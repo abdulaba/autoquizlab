@@ -11,10 +11,10 @@
   <%= @quiz.description %>
 </p>
 
-<%= link_to take_quizzes_path, data: {turbo_method: :create, turbo_confirm: '¿Seguro que quieres tomar el examen?'} do %>
+<%= link_to take_quizzes_path, class: 'button first', data: {turbo_method: :create, turbo_confirm: '¿Seguro que quieres tomar el examen?'} do %>
 <button> Tomar examen </button>
 <% end %>
 
 
-<%= link_to 'Editar', edit_quiz_path(@quiz) %> |
-<%= link_to 'Volver', quizzes_path %>
+<%= link_to 'Editar', edit_quiz_path(@quiz), class: 'button first'  %> |
+<%= link_to 'Volver', quizzes_path, class: 'button first'  %>

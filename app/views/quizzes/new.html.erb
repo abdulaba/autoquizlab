@@ -1,6 +1,15 @@
 <%# app/views/quizzes/new.html.erb %>
 <h1>Nuevo Quiz</h1>
 
+<div class="grid">
+  <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
+    <!-- Tu contenido SVG aquí -->
+  </svg>
+  <div class="blur"></div>
+</div>
+
+<div class="form-containerslo">
+  <div class="form-sectionslo" id="signup-section">
 <%= form_with(model: @quiz, local: true) do |form| %>
   <% if @quiz.errors.any? %>
     <div id="error_explanation">
@@ -28,5 +37,6 @@
     <%= form.submit 'Crear Cuestionario' %>
   </div>
 <% end %>
-
-<%= link_to 'Volver', quizzes_path %>
+</div>
+</div>
+<%= link_to 'Volver', quizzes_path, class: 'button first'  %>
