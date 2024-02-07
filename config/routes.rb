@@ -16,10 +16,6 @@ Rails.application.routes.draw do
   end
 
 
-  # nesteado para quizzes de un teacher
-  resources :teachers do
-    resources :quizzes
-  end
 
   # nesteado para rutas de take_quizzes de un quiz
   # el alumno no puede borrar, editar o un quiz
@@ -27,7 +23,7 @@ Rails.application.routes.draw do
     resources :take_quizzes, only: [:new, :create]
     end
 
-  resources :teachers, only: [:show] do
+  resources :teachers, only: [:new, :create, :show] do
     resources :quizzes
   end
 
