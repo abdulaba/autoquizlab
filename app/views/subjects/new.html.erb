@@ -1,5 +1,13 @@
 <!-- app/views/subjects/new.html.erb -->
-<h1>Crea una nueva materia</h1>
+<hr class="sin-color">
+<hr class="sin-color">
+<hr class="sin-color">
+<hr class="sin-color">
+
+<h1>Crea una Nueva Materia</h1>
+<hr class="sin-color">
+<hr class="sin-color">
+
 <div class="grid">
   <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
     <!-- Tu contenido SVG aquí -->
@@ -7,12 +15,14 @@
   <div class="blur"></div>
 </div>
 
-<div class="form-containerslo">
-  <div class="form-sectionslo" id="signup-section">
+<div class="card" >
+  <div class="card-body wow-bg" id="formBg" >
 
 
 <%= form_with(model: [@institution, @subject], local: true) do |form| %>
   <% if @subject.errors.any? %>
+        <div class="form-inputs">
+
     <div id="error_explanation">
       <h2><%= pluralize(@subject.errors.count, "error") %> no se pudo guardar la materia</h2>
 
@@ -24,20 +34,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :name, 'Materia' %>
     <%= form.text_field :name %>
   </div>
+<hr class="sin-color">
 
-    <div class="field">
+    <div class="field" style="color:white;">
     <%= form.label :teacher, 'Profesor' %>
     <%= form.select :teacher_id, options_for_select(@institution.teachers.map {|teacher| [teacher.name, teacher.id]}) %>
   </div>
+ </div>
+</div>
+</div>
+<hr class="sin-color">
 
-  <div class="actions">
-    <%= form.submit 'Save' %>
-  </div>
+<div class="form-actions">
+ <button> <%= form.submit 'Guardar', class: "btn btn-outline-light btn-md" %> </button>
+</div>
+
 <% end %>
+
+<hr class="sin-color">
+<hr class="sin-color">
+<hr class="sin-color">
+
+
+
+ <%= link_to 'Back to Institutions', institutions_path, class: "btn btn-outline-light btn-md" %>
 </div>
 </div>
-<%= link_to 'Back to Institutions', institutions_path, class: 'button third' %>
