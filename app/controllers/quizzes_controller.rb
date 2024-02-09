@@ -14,9 +14,9 @@ class QuizzesController < ApplicationController
     @quiz.teacher = current_teacher
     if @quiz.save
       @generated_content = @quiz.content
-      @quiz.number_of_questions.times do | number |
+      (@quiz.number_of_questions - 1).times do | number |
         question = Question.new(quiz_id: @quiz.id, question: @generated_content.split("\n").split("")[number + 1][0])
-        2.times do | option |
+        3.times do | option |
           question.answers << @generated_content.split("\n").split("")[number + 1][option + 1]
         end
         question.save
