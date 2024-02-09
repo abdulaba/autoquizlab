@@ -1,12 +1,33 @@
+<h1>Crear un Nuevo Maestro</h1>
+<hr class="sin-color">
+
+<div class="grid">
+  <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
+    <!-- Tu contenido SVG aquí -->
+  </svg>
+  <div class="blur"></div>
+</div>
+
+<div class="card" >
+  <div class="card-body wow-bg" id="formBg" >
+
 <%= form_with model: [@institution, @teacher] do |f| %>
+<div class="form-inputs" style="color:white;">
+
     <%= f.label :Email %>
     <%= f.text_field :email %>
-    
+
     <%= f.label :Password %>
     <%= f.password_field :password%>
-    
+
     <%= f.label :Nombre %>
     <%= f.text_field :name %>
+</div>
+</div>
+</div>
 
-    <%= f.submit "Registrar Maestro" %>
+ <div class="form-actions">
+  <button>  <%= f.submit "Registrar Maestro", class: "btn btn-outline-light btn-md" %> </button>
+        </div>
+
 <% end %>

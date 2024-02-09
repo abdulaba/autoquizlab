@@ -10,8 +10,6 @@
   <div class="blur"></div>
 </div>
 
-<div class="form-containerslo">
-  <div class="form-sectionslo" id="signup-section">
 
 <%= form_with(model: @institution, local: true) do |form| %>
   <% if @institution.errors.any? %>
@@ -53,4 +51,4 @@
   </div>
     </div>
 
-<%= link_to 'Volver', institutions_path, class: 'button first' %>
+<%= link_to 'Volver', institutions_path, class: "btn btn-outline-dark btn-md" %>

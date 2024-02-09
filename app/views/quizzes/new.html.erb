@@ -1,5 +1,6 @@
 <%# app/views/quizzes/new.html.erb %>
 <h1>Crear un Nuevo Examen</h1>
+<hr class="sin-color">
 
 <div class="grid">
   <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" width="982" height="786" viewBox="0 0 982 786" fill="none">
@@ -8,55 +9,54 @@
   <div class="blur"></div>
 </div>
 
-<div class="form-containerslo">
-  <div class="form-sectionslo" id="signup-section">
+<div class="card" >
+  <div class="card-body wow-bg" id="formBg" >
 <%= form_with(model: @quiz, local: true) do |form| %>
 
-  <div class="field">
+  <div class="field" style="color:white;"   >
     <%= form.label :subject_name, 'Nombre de materia:' %>
     <%= form.text_field :subject_name %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :student_age, 'Edad de los alumnos:' %>
     <%= form.select :student_age, options_for_select([6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]), include_blank: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :topic, 'Tema:' %>
     <%= form.text_field :topic %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :number_of_questions, 'Número de preguntas:' %>
     <%= form.select :number_of_questions, options_for_select((1..20).to_a), include_blank: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :exam_level, 'Nivel del examen:' %>
     <%= form.select :exam_level, options_for_select(['Principiante', 'Intermedio', 'Avanzado']), include_blank: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :title, 'Título' %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field" style="color:white;">
     <%= form.label :description, 'Descripción' %>
     <%= form.text_area :description %>
   </div>
+</div>
+</div>
+<hr class="sin-color">
 
-  <div class="actions">
-    <%= form.submit 'Crear Cuestionario' %>
+  <div class="actions" style="color:white;">
+  <button>  <%= form.submit 'Crear Cuestionario', class: "btn btn-outline-light btn-md" %> </button>
   </div>
 <% end %>
-</div>
-</div>
-<%= link_to 'Volver', quizzes_path, class: 'button first'  %>
 
-<%= link_to 'Volver', quizzes_path %>
+<%#= link_to 'Volver', quizzes_path, class: 'button'  %>
 
 
 <%# subject_name, student_age, tpo %>
-

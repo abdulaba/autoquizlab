@@ -4,32 +4,33 @@
   <div class="blur"></div>
 </div>
 
-<div class="form-containerslo">
- <div class="form-sectionslo" id="login-section">
-    <h2>Nuevo Estudiante</h2>
 
+<h1>Crea un Nuevo Estudiante</h1>
+<hr class="sin-color">
+<hr class="sin-color">
+
+<div class="card" >
+  <div class="card-body wow-bg" id="formBg" >
 
 <%= form_with model: [@institution, @student] do |f| %>
-<div class="form-inputs">
+<div class="form-inputs" style="color:white;">
     <%= f.label :Email %>
     <%= f.text_field :email %>
 
-    <%= f.label :Password %>
+    <%= f.label :Contraseña %>
     <%= f.text_field :password %>
 
     <%= f.label :Nombre %>
     <%= f.text_field :name %>
+</div>
+</div>
+</div>
 
  <div class="form-actions">
-    <button>  <%= f.submit "Registrar estudiante" %> </button>
+    <button>  <%= f.submit "Registrar estudiante", class: "btn btn-outline-light btn-md" %> </button>
     </div>
 <% end %>
  <hr class="sin-color">
     <hr class="sin-color">
     <hr class="sin-color">
     <hr class="sin-color">
-     </div>
-</div>
-   </div>
-
- 
