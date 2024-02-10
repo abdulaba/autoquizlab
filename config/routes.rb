@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :institutions do
     resources :subjects, only: [:new, :create]
-    resources :teachers, only: [:new, :create]
+    # resources :teachers, only: [:new, :create]
     resources :students, only: [:new, :create]
   end
 
@@ -23,9 +23,9 @@ Rails.application.routes.draw do
     resources :take_quizzes, only: [:new, :create]
     end
 
-  resources :teachers, only: [:new, :create, :show] do
-    resources :quizzes
-  end
+  # resources :teachers, only: [:new, :create, :show] do
+  #   resources :quizzes
+  # end
 
   resources :quizzes do
     resources :take_quizzes, only: [:new, :create]

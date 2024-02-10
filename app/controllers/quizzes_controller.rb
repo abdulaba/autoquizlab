@@ -19,6 +19,7 @@ class QuizzesController < ApplicationController
         3.times do | option |
           question.answers << @generated_content.split("\n").split("")[number + 1][option + 1]
         end
+        raise
         question.save
       end
       redirect_to @quiz, notice: 'El examen ha sido creado de manera exitosa.'

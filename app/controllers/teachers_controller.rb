@@ -44,7 +44,8 @@ class TeachersController < ApplicationController
   private
 
   def set_institution
-    @institution = Institution.find(params[:institution_id])
+    # @institution = Institution.find(params[:institution_id])
+    @institution = Institution.find(1)
   end
 
   def set_teacher
